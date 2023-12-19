@@ -13,7 +13,11 @@ class issuesubmit :
         self.problem_answer = database("problem_answer")
         
     def makeproblem(self): # 문제와 답을 넣는 것
-        
+        problem_type = input("문제 유형을 입력하세요.(n지선다형) : ")
+        problem_count = input("문항 수를 입력하세요.(n문항) : ")
+        for i in range(problem_count):
+            print("문제와 선택지를 입력하세요.")
+            문
 
         
         
