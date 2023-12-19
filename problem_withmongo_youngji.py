@@ -1,10 +1,3 @@
-# main에서 실행할 코드
-# import problem_withmongo_youngji
-
-# problem_withmongo_youngji.solving_problem()
-# problem_withmongo_youngji.end()
-
-
 from pymongo import MongoClient
 mongoClient = MongoClient("mongodb://192.168.0.65:27017")    # mongodb 접속
 database = mongoClient["toy_nosqls"]   # database 연결
