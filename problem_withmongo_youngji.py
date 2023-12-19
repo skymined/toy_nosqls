@@ -11,7 +11,7 @@ database = mongoClient["toy_nosqls"]   # database 연결
 # database[collection_name]        # collection 작업
 
 collection_problem_list = database['problem_list']
-collection_answer_list = database['answer_list']
+collection_problem_answer = database['answer_list']
 collection_user = database['user']
 collection_user_answer = database['user_answer']
 
@@ -73,7 +73,7 @@ def solving_problem():
         print(" 문항{}: {} / ".format(num_count_question, i["question"]), end="")
         problem_id = i['_id']
         num_count_question+= 1
-        doc2 = collection_answer_list.find({"problems_id" : problem_id})
+        doc2 = collection_problem_answer.find({"problems_id" : problem_id})
 
         # 답 나열
         print("선택지: ", end="")
