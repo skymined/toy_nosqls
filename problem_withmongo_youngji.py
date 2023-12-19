@@ -4,7 +4,7 @@ database = mongoClient["toy_nosqls"]   # database 연결
 # database[collection_name]        # collection 작업
 
 collection_problem_list = database['problem_list']
-collection_problem_answer = database['answer_list']
+collection_problem_answer = database['problem_answer']
 collection_user = database['user']
 collection_user_answer = database['user_answer']
 
