@@ -1,3 +1,10 @@
+# main에서 실행할 코드
+# import problem_withmongo_youngji
+
+# problem_withmongo_youngji.solving_problem()
+# problem_withmongo_youngji.end()
+
+
 from pymongo import MongoClient
 mongoClient = MongoClient("mongodb://192.168.0.65:27017")    # mongodb 접속
 database = mongoClient["toy_nosqls"]   # database 연결
@@ -80,7 +87,6 @@ def solving_problem():
         user_answer = int(input(" 답: "))
         collection_user_answer.insert_one({"user_id" : inserted_user_id, "problem_id" : problem_id,"user_answer" : user_answer})
 
-
 # 종료여부 묻기
 def end():
     while True:
@@ -91,9 +97,5 @@ def end():
             break
         else:
             print("c, x 중 하나를 입력해주세요.")
-            end()
 
 
-
-solving_problem()
-end()
