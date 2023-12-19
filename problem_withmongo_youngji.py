@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-mongoClient = MongoClient("mongodb://192.168.0.65:27017")    # mongodb 접속
+mongoClient = MongoClient("mongodb://192.168.0.145:27017")    # mongodb 접속
 database = mongoClient["toy_nosqls"]   # database 연결
 # database[collection_name]        # collection 작업
 
