@@ -13,7 +13,10 @@ problem_answer = list(coll_problem_answer.find({}))
 user = list(coll_user.find({}))
 user_answer = list(coll_user_answer.find({}))
 
-for i in range(len())
+for i in range(len(user)) :
+    print("{}".format(user[i]))
+    for j in range(len(problem)) :
+        print("{}".format(problem[j]))
 
 
 
