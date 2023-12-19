@@ -3,7 +3,7 @@
 class Issuesubmit :
     def __init__(self):
         self.problem_list = [] # 문제 리스트가 들어갈 곳
-        self.proble_manswer = [] # 문제 id와 연동해서 문제 답이 들어갈 곳
+        self.problem_answer = [] # 문제 id와 연동해서 문제 답이 들어갈 곳
 
     def mongoconnect(self): # 몽고디비와 연결하는 함수
         from pymongo import MongoClient
@@ -18,10 +18,10 @@ class Issuesubmit :
         for i in range(problem_count):
             print("문제와 선택지를 입력하세요.")
             problem_1 = input("문항{} ".format(i+1))
-            self.problem_list.insert_one({"Question" : problem_1})
-            problem_id = self.problem_list.inserted_id
+            result = self.problem_list.insert_one({"Question" : problem_1})
+            problem_id = result.inserted_id
             for j in range(problem_type):
-                problem_1_answer = int(input("{}. ".format(j+1)))
+                problem_1_answer = input("{}. ".format(j+1))
                 self.problem_answer.insert_one({"Question_id":problem_id, "Answer_num" : j+1, "Answer" : problem_1_answer})
             score = int(input("점수 : "))
             correct_answer = int(input("정답 : "))

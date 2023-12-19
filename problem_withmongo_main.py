@@ -6,4 +6,4 @@ from problem_withmongo_sky import Issuesubmit
 
 issuesubmit = Issuesubmit()
 issuesubmit.mongoconnect()
-issuesubmit.makeproblem()
+issuesubmit.makeproblem2()
