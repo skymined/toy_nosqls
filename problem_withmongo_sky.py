@@ -7,7 +7,7 @@ class Issuesubmit :
 
     def mongoconnect(self): # 몽고디비와 연결하는 함수
         from pymongo import MongoClient
-        Mongoclient = MongoClient("mongodb://localhost:27017")
+        Mongoclient = MongoClient("mongodb://192.168.0.145:27017")
         database = Mongoclient["toy_nosqls"]
         self.problem_list = database["problem_list"]
         self.problem_answer = database["problem_answer"]
