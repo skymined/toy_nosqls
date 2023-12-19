@@ -1,6 +1,6 @@
 # 문제 제출지 작성하기
 
-class issuesubmit :
+class Issuesubmit :
     def __init__(self):
         self.problem_list = [] # 문제 리스트가 들어갈 곳
         self.proble_manswer = [] # 문제 id와 연동해서 문제 답이 들어갈 곳
@@ -18,8 +18,15 @@ class issuesubmit :
         for i in range(problem_count):
             print("문제와 선택지를 입력하세요.")
             problem_1 = input("문항{}".format(i+1))
-            problem_1_answer
+            self.problem_list.insertOne({"Questioin" : problem_1})
+            problem_id = self.problem_list.inserted_id
             for j in range(problem_type):
+                problem_1_answer = (input("선택지{}".format(j+1)))
+                self.problem_answer.insertOne({"Question_id":problem_id, "Answer_num" : j+1, "Answer" : problem_1_answer})
+            score = int(input("점수 : "))
+            correct_answer = int(input("정답 : "))
+            self.problem_list.updatemany({"Question" : problem_1}, {"$set":{"score":score, "correct_answer":correct_answer}})
+
                 
 
 
