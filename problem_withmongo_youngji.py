@@ -1,47 +1,39 @@
 from pymongo import MongoClient
 mongoClient = MongoClient("mongodb://192.168.0.145:27017")    # mongodb 접속
+# mongoClient = MongoClient("mongodb://192.168.0.65:27017")    # mongodb 접속
 database = mongoClient["toy_nosqls"]   # database 연결
-# database[collection_name]        # collection 작업
 
 collection_problem_list = database['problem_list']
 collection_problem_answer = database['problem_answer']
 collection_user = database['user']
 collection_user_answer = database['user_answer']
 
-# def insert_data():
-#     problems = {
-#             'question': '다음 중 파이썬에서 사용되는 산술 연산자가 아닌 것은?',
-#             'answer': 4,
-#             'score': 10
-#         }
-#         # {
-#         #     'question': '파이썬에서 리스트의 길이를 확인하는 함수는?',
-#         #     'answer': 1,
-#         #     'score': 10
-#         # }
+Question = [
+{
+    'Question': '다음 중 파이썬에서 사용되는 산술 연산자가 아닌 것은?',
+    'Answer': ['+', '-', '*', '/', '%'],
+    'answer': 4,  # '/' is the fourth choice
+    'score': 10
+},
+{
+    'Question': '파이썬에서 리스트의 길이를 확인하는 함수는?',
+    'Answer': ['len()', 'size()', 'length()', 'sizeof()', 'count()'],
+    'answer': 1,  # 'len()' is the first choice
+    'score': 10
+}]
 
-#     answer = [
-#             {'choices': '+'},
-#             {'choices': '-'},
-#             {'choices': '*'},
-#             {'choices': '/'},
-#             {'choices': '%'}
-#             # {'choices': 'len()'},
-#             # {'choices': 'size()'},
-#             # {'choices': 'length()'},
-#             # {'choices': 'sizeof()'},
-#             # {'choices': 'count()'},
-#     ]
+# data 입력
+def insert_data():
+    collection_problem_list.delete_many({})
+    collection_problem_answer.delete_many({})
 
-#     problems_result = collection_problem_list.insert_one(problems)
-#     problems_inserted_id = problems_result.inserted_id     #problem id
+    problems_result = collection_problem_list.insert_many(Question)
+    problems_inserted_ids = problems_result.inserted_ids
 
-#     list_problems_answer = list()
-#     for dict_answer in answer:
-#         dict_answer["problems_id"] = problems_inserted_id
-#         list_problems_answer.append(dict_answer)
-
-#     collection_answer_list.insert_many(list_problems_answer)
+    for i, problem_id in enumerate(problems_inserted_ids):
+        list_problems_answer = [{'Answer': choice, 'Question_id': problem_id} for choice in Question[i]['Answer']]
+        collection_problem_answer.insert_many(list_problems_answer)
+        collection_problem_list.update_many({}, {'$unset': {'Answer': ""}})
 
 
 def input_user_name():
@@ -91,4 +83,6 @@ def end():
         else:
             print("c, x 중 하나를 입력해주세요.")
 
-
+# insert_data()
+# solving_problem()
+# end()
