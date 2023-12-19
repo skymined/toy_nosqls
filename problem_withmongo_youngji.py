@@ -63,16 +63,16 @@ def solving_problem():
 
     for i in doc:
         # 문제 나열
-        print(" 문항{}: {} / ".format(num_count_question, i["question"]), end="")
+        print(" 문항{}: {} / ".format(num_count_question, i["Question"]), end="")
         problem_id = i['_id']
         num_count_question+= 1
-        doc2 = collection_problem_answer.find({"problems_id" : problem_id})
+        doc2 = collection_problem_answer.find({"Question_id" : problem_id})
 
         # 답 나열
         print("선택지: ", end="")
         num_count_choices = 1
         for j in doc2:
-            print("{}. {} ".format(num_count_choices, j["choices"]), end="")
+            print("{}. {} ".format(num_count_choices, j["Answer"]), end="")
             num_count_choices += 1
         print("")
 
