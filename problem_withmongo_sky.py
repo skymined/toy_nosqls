@@ -13,6 +13,7 @@ class Issuesubmit :
         self.problem_answer = database["problem_answer"] ㅠ
         
     def makeproblem(self): # 문제와 답을 넣는 것
+        self.mongoconnect()
         problem_type = int(input("문제 유형을 입력하세요.(n지선다형) : "))
         problem_count = int(input("문항 수를 입력하세요.(n문항) : "))
         for i in range(problem_count):
