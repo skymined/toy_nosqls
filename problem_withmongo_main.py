@@ -6,8 +6,9 @@ from problem_withmongo_sky import Issuesubmit
 import problem_withmongo_youngji
 import score_sum_kgh
 
-Issuesubmit.mongoconnect()
-Issuesubmit.makeproblem()
+issuesubmit = Issuesubmit()
+issuesubmit.mongoconnect()
+issuesubmit.makeproblem()
 
 problem_withmongo_youngji.solving_problem()
 problem_withmongo_youngji.end()
