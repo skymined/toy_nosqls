@@ -10,7 +10,7 @@ class Issuesubmit :
         Mongoclient = MongoClient("mongodb://192.168.0.145:27017")
         database = Mongoclient["toy_nosqls"]
         self.problem_list = database["problem_list"]
-        self.problem_answer = database["problem_answer"]
+        self.problem_answer = database["problem_answer"] ㅠ
         
     def makeproblem(self): # 문제와 답을 넣는 것
         problem_type = int(input("문제 유형을 입력하세요.(n지선다형) : "))
