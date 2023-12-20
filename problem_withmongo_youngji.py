@@ -38,8 +38,10 @@ def insert_data():
 # 참여자 이름 입력
 def input_user_name():
     user_name = input("응시자 이름을 입력하세요: ")
+    # 입력 된 이름을 user 컬렉션에 insert
     user_id = collection_user.insert_one({"user_name" : user_name})
     inserted_user_id = user_id.inserted_id
+    # 입력 된 이름에 해당하는 id를 return
     return inserted_user_id
 
 # 문제 풀기
@@ -53,6 +55,7 @@ def solving_problem():
     for i in doc:
         # 문제 나열
         print(" 문항{}: {} / ".format(num_count_question, i["Question"]), end="")
+        # i번 문제의 id를 problem_id에 저장
         problem_id = i['_id']
         num_count_question+= 1
         doc2 = collection_problem_answer.find({"Question_id" : problem_id})
@@ -67,14 +70,17 @@ def solving_problem():
 
         # 답 입력
         user_answer = int(input(" 답: "))
-        collection_user_answer.insert_one({"user_id" : inserted_user_id, "problem_id" : problem_id,"user_answer" : user_answer})
+        # 사용자 id, 문제 id, 문제, 사용자가 입력한 답을 user_answer 컬렉션에 insert
+        collection_user_answer.insert_one({"user_id" : inserted_user_id, "problem_id" : problem_id, "user_answer" : user_answer})
 
 # 종료여부 묻기
 def end():
     while True:
         user_end = input("다음 응시자가 있나요? (계속: c, 종료: x): ")
+        # c 입력 시 solving_problem() 다시 호출
         if user_end == 'c':
             solving_problem()
+        # x 입력 시 break
         elif user_end == 'x':
             break
         else:
