@@ -14,15 +14,18 @@ user = list(coll_user.find({}))
 user_answer = list(coll_user_answer.find({}))
 
 # 각 문항 정답 출력에 대한 구문
-print("-------------------")
-print("각 문항 정답 : ", end="")
-for i in range(len(problem)):
-    if i < 2 :
-        print("{}".format(problem[i]['correct_answer']), end=",")
-    else :
-        print("{}".format(problem[i]['correct_answer']))
-    pass
-print("")
+def answer_data() :
+    print("-------------------")
+    print("각 문항 정답 : ", end="")
+    for i in range(len(problem)):
+        if i < 2 :
+            print("{}".format(problem[i]['correct_answer']), end=",")
+        else :
+            print("{}".format(problem[i]['correct_answer']))
+        pass
+    print("")
+
+
 score_num_list=[]
 print("응시자별 채점 결과 :")
 sum_score=0
