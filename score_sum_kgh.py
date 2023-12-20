@@ -13,17 +13,18 @@ problem_answer = list(coll_problem_answer.find({}))
 user = list(coll_user.find({}))
 user_answer = list(coll_user_answer.find({}))
 
+# -----------------------------------------------------
+
 # 각 문항 정답 출력에 대한 구문
-def answer_data() :
-    print("-------------------")
-    print("각 문항 정답 : ", end="")
-    for i in range(len(problem)):
-        if i < 2 :
-            print("{}".format(problem[i]['correct_answer']), end=",")
-        else :
-            print("{}".format(problem[i]['correct_answer']))
-        pass
-    print("")
+print("-------------------")
+print("각 문항 정답 : ", end="")
+for i in range(len(problem)):
+    # if i < 2 :
+    print("{}".format(problem[i]['correct_answer']), end=",")
+    # else :
+    # print("{}".format(problem[i]['correct_answer']))
+    pass
+print("")
 
 
 score_num_list=[]
@@ -34,8 +35,6 @@ for i in range(len(user)) :
     correct_num_list=[]
     score_list=[]
     score=0
-    
-    print("{}".format(user[i]["user_name"])) #user에 있는 user_name을 출력
 
     for j in range(len(user_answer)):
         if  user[i]['_id'] == user_answer[j]['user_id']:
@@ -48,20 +47,23 @@ for i in range(len(user)) :
     for j in range(len(user_answer_list)):        
         if user_answer_list[j] == correct_num_list[j]:
             score += score_list[j]
-            
-            pass
-        pass
+            coll_user_answer.update_one({"user_id":user[j]['_id'] , "problem_id" : problem[j]}, {"$set":{"user_score":problem[j]['score']}})
+        else :
+            coll_user_answer.update_one({"user_id":user[j]['_id'] , "problem_id" : problem[j]}, {"$set":{"user_score":0}})      
+        pass    
+
     score_num_list.append(score)
-    print(score)
-    print(score_num_list)
+    print("{} : {}점".format(user[i]["user_name"], score)) #user에 있는 user_name을 출력
+
+
     
 
-print("과목 평균 점수: ", end="")
+
 for i in range(len(score_num_list)):
     sum_score += score_num_list[i]
     pass
 
-print(sum_score/len(user))
+print("과목 평균 점수: {}점".format(sum_score/len(user)))
 
 
 
