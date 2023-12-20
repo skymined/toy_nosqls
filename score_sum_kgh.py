@@ -19,13 +19,10 @@ user_answer = list(coll_user_answer.find({}))
 def answer_data():
     print("-------------------")
     print("각 문항 정답 : ", end="")
-    for i in range(len(problem)):
-        # if i < 2 :
-        print("{}".format(problem[i]['correct_answer']), end=",")
-        # else :
-        # print("{}".format(problem[i]['correct_answer']))
-        pass
-    print("")
+    problems = [str(_['correct_answer']) for _ in problem]  # 'correct_answer' 값들을 리스트에 저장
+    print(','.join(problems[:-1]) + ',' + problems[-1])  # 쉼표로 연결된 문자열로 출력
+
+
 
 def score_result() :
     score_num_list=[]
