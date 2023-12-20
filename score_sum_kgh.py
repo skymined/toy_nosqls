@@ -20,6 +20,9 @@ def answer_data(problem):
     print("-------------------")
     print("각 문항 정답 : ", end="")
     problems = list(str(num['correct_answer']) for num in problem)  # 'correct_answer' 값들을 리스트에 저장
+    if len(problems) == 0:
+        problems=['0']
+        pass
     print(','.join(problems[:-1]) + ',' + problems[-1])  # 쉼표로 연결된 문자열로 출력
     pass
 

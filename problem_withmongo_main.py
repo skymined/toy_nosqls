@@ -3,15 +3,12 @@
 #문제 제출지 작성에 필요한 클래스 호출
 
 from problem_withmongo_sky import Issuesubmit
+issuesubmit = Issuesubmit()
+issuesubmit.makeproblem()
 import problem_withmongo_youngji
+problem_withmongo_youngji.solving_problem()
+problem_withmongo_youngji.end()
 import score_sum_kgh
-
-# issuesubmit = Issuesubmit()
-# issuesubmit.makeproblem()
-
-# problem_withmongo_youngji.solving_problem()
-# problem_withmongo_youngji.end()
-
 pro = score_sum_kgh.problem
 user = score_sum_kgh.user
 user_an = score_sum_kgh.user_answer
