@@ -3,9 +3,19 @@
 - 장영지 : 응시자 문제 풀기
 - 김경하 : 통계
 
+### 컬렉션 이름
+|컬렉션|설명|
+|--|--|
+|problem_list|문제|
+|problem_answer|문제 id, 문제 정답|
+|user|참여자 이름|
+|user_answer|참여자 id, 문제 id, 참여자 입력 답, |
+
+
+### 문제
 <details open> 
-  <summary>문제</summary>
-  
+  <summary></summary>
+
 ```
 문제1 : 다음 중 파이썬에서 사용되는 산술 연산자가 아닌 것은?
 보기 : '+', '-', '*', '/', '%'
