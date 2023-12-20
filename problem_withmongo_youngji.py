@@ -35,19 +35,16 @@ def insert_data():
         collection_problem_answer.insert_many(list_problems_answer)
         collection_problem_list.update_many({}, {'$unset': {'Answer': ""}})
 
-
+# 참여자 이름 입력
 def input_user_name():
-    # 참여자 이름 입력
     user_name = input("응시자 이름을 입력하세요: ")
     user_id = collection_user.insert_one({"user_name" : user_name})
     inserted_user_id = user_id.inserted_id
     return inserted_user_id
 
-
+# 문제 풀기
 def solving_problem():
-
     inserted_user_id = input_user_name()
-
     print("문제를 풀어주세요: ")
 
     doc = collection_problem_list.find({})
