@@ -1,15 +1,18 @@
 ### 구성원별 역할 기록
-- 김하늘(PM) : 문제 제출자 작성하기
-- 장영지 : 응시자 문제 풀기
-- 김경하 : 통계
+|이름|역할|
+|--|--|
+|김하늘(PM)|문제 제출자 작성하기|
+|장영지|응시자 문제 풀기|
+|김경하|통계|
+
 
 ### 컬렉션 이름
 |컬렉션|설명|
 |--|--|
-|problem_list|문제|
-|problem_answer|문제 id, 문제 정답|
-|user|참여자 이름|
-|user_answer|참여자 id, 문제 id, 참여자 입력 답, |
+|problem_list|Question, correct_answer, score|
+|problem_answer|Question_id, Answer_num, Answer|
+|user|user_name|
+|user_answer|user_id, problem_id, user_answer, user_score|
 
 
 ### 문제
