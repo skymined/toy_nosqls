@@ -5,7 +5,6 @@
 |장영지|응시자 문제 풀기|
 |김경하|통계|
 
-
 ### 컬렉션 이름
 |컬렉션|설명|
 |--|--|
@@ -13,7 +12,6 @@
 |problem_answer|Question_id, Answer_num, Answer|
 |user|user_name|
 |user_answer|user_id, problem_id, user_answer, user_score|
-
 
 ### 문제
 <details open> 
