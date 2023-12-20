@@ -6,14 +6,18 @@ from problem_withmongo_sky import Issuesubmit
 import problem_withmongo_youngji
 import score_sum_kgh
 
-issuesubmit = Issuesubmit()
-issuesubmit.makeproblem()
+# issuesubmit = Issuesubmit()
+# issuesubmit.makeproblem()
 
-problem_withmongo_youngji.solving_problem()
-problem_withmongo_youngji.end()
+# problem_withmongo_youngji.solving_problem()
+# problem_withmongo_youngji.end()
 
-score_sum_kgh.answer_data()
-score_sum_kgh.score_result()
+pro = score_sum_kgh.problem
+user = score_sum_kgh.user
+user_an = score_sum_kgh.user_answer
+score_sum_kgh.answer_data(pro)
+score_sum_kgh.score_result(user, user_an)
+
 
 
 
